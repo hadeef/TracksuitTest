@@ -9,7 +9,16 @@ type InsightsProps = {
 };
 
 export const Insights = ({ insights, className }: InsightsProps) => {
-  const deleteInsight = () => undefined;
+  const deleteInsight = async (id: number) => {
+    const res = await fetch(`/insights/delete?id=${id}`, {
+      method: "DELETE",
+    });
+    if (res.ok) {
+      globalThis.location.reload();
+    } else {
+      alert("Failed to delete insight");
+    }
+  };
 
   return (
     <div className={cx(className)}>
@@ -17,15 +26,16 @@ export const Insights = ({ insights, className }: InsightsProps) => {
       <div className={styles.list}>
         {insights?.length
           ? (
-            insights.map(({ id, text, date, brandId }) => (
+            insights.map(({ id, brandId, createdAt, text }) => (
               <div className={styles.insight} key={id}>
                 <div className={styles["insight-meta"]}>
                   <span>{brandId}</span>
                   <div className={styles["insight-meta-details"]}>
-                    <span>{date.toString()}</span>
+                    <span>{createdAt.toString()}</span>
                     <Trash2Icon
                       className={styles["insight-delete"]}
-                      onClick={deleteInsight}
+                      onClick={() =>
+                        deleteInsight(id)}
                     />
                   </div>
                 </div>

@@ -56,7 +56,7 @@ export const Modal = ({ open, onClose, children }: ModalProps) => {
             <motion.div
               className={cx(styles.modal)}
               variants={ANIMATIONS.modal}
-              onClick={(e) => {
+              onClick={(e: React.MouseEvent) => {
                 e.stopPropagation();
               }}
             >

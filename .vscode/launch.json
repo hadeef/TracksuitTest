@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Deno: Run main.ts",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/server/main.ts",
+      "runtimeExecutable": "deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-brk=127.0.0.1:9250",
+        "-A",
+        "main.ts"
+      ],
+      "cwd": "${workspaceFolder}/server"
+    }
+  ]
+}

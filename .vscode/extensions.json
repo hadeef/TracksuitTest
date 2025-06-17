@@ -1,3 +1,7 @@
 {
-  "recommendations": ["denoland.vscode-deno", "phoenisx.cssvar"]
+  "recommendations": [
+    "denoland.vscode-deno",
+    "phoenisx.cssvar",
+    "github.copilot"
+  ]
 }
